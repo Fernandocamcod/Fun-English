@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "email": "docente@ejemplo.com",
+    "password": "1234",
+    "role": "docente",
+    "nombre": "Profesor Principal"
+  },
+  {
+    "id": 2,
+    "email": "admin@ejemplo.com",
+    "password": "admin123",
+    "role": "admin",
+    "nombre": "Administrador"
+  },
+  {
+    "id": 3,
+    "email": "estudiante1@estudiante.com",
+    "password": "abcd1234",
+    "role": "estudiante",
+    "nombre": "María Pérez",
+    "curso": "Inglés B1",
+    "nivel": "B1"
+  }
+]

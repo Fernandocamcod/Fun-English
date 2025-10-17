@@ -1,0 +1,567 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* === Estilos generales === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #f0f8ff, #e0f7fa);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+header {
+  background-color: #a2d2ff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo-title img {
+  height: 80px;
+  width: 80px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/*SIDEBAR*/
+.sidebar {
+  order: 0; /* Sidebar primero */
+  flex-shrink: 0;
+}
+
+.subtab-content {
+  max-width: 100%; /* ← Asegura que el contenido no se desborde */
+  overflow-x: auto; /* ← Permite desplazamiento horizontal si es necesario */
+}
+
+/* Estado Colapsado: La "Regleta de Logos" */
+.sidebar.collapsed {
+  width: 60px; /* Ancho pequeño para solo iconos */
+}
+
+/* Flecha de Toggle (Ajustada para estar dentro o justo al lado del menú) */
+.toggle-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  text-align: right;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed .toggle-arrow {
+  transform: rotate(180deg); /* Gira la flecha cuando está colapsado */
+  text-align: center;
+}
+
+/* Contenedor de botones de subpestaña */
+.subtabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Estilo de cada botón de subpestaña */
+.subtab-button {
+  background-color: #e0f7fa;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #004d40;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  
+  /* Configuración Flex para alinear Icono y Etiqueta */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.subtab-button:hover,
+.subtab-button:focus {
+  background-color: #b2ebf2;
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Ocultar la etiqueta de texto cuando el sidebar está colapsado */
+.sidebar.collapsed .subtab-label {
+  display: none;
+}
+
+/* Centrar el icono cuando el sidebar está colapsado */
+.sidebar.collapsed .subtab-button {
+  padding: 0.5rem 0; /* Menos padding horizontal */
+  justify-content: center; /* Centra el icono */
+}
+
+
+
+ .main-content {
+    flex-grow: 1;
+    width: calc(100% - 60px); /* Ajusta el ancho del contenido */
+    background-color: #e0f7fa;
+    min-width: 0;
+  }
+ 
+/* Subtab content styles */
+.subtab-content {
+  background-color: #e0f7fa;
+  padding: 1rem 1.5rem;
+  border-radius: 0 15px 15px 15px;
+  margin-top: 0;
+}
+
+
+
+
+/* Estilos para las tarjetas y botones */
+.card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-5px);
+  outline: none;
+}
+
+button {
+  background-color: #5bd1c5;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: #c8e4ff;
+  transform: scale(1.05);
+  outline: 3px solid #248be4;
+  outline-offset: 2px;
+}
+
+/* === Estilos de las actividades === */
+.activity-card {
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  border: 2px solid #b2ebf2;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+/*ENLAZAR IMÁGENES*/
+
+.match-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 1rem 0;
+}
+
+.match-item {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: #e0f7fa;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.match-item:hover {
+  background-color: #b2ebf2;
+  transform: scale(1.05);
+}
+
+.match-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.match-image:hover {
+  transform: scale(1.05);
+}
+
+.pair-color-0 { border-color: #cb71f8; background-color: #fee2e2; }
+.pair-color-1 { border-color: #60a5fa; background-color: #dbeafe; }
+.pair-color-2 { border-color: #34d399; background-color: #d1fae5; }
+.pair-color-3 { border-color: #fbbf24; background-color: #fef3c7; }
+.pair-color-4 { border-color: #a78bfa; background-color: #ede9fe; }
+
+.message-result {
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.message-result.success { color: green; }
+.message-result.error { color: red; }
+
+
+/* === DRAG AND DROP ACTIVITY === */
+.sentence-box {
+  min-height: 50px;
+  padding: 10px;
+  margin-top: 1rem;
+  background-color: #f0f8ff;
+  border: 2px dashed #a2d2ff;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.word-button {
+  background-color: #dbeafe;
+  color: #1e3a8a;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.word-button:hover {
+  background-color: #bfdbfe;
+}
+
+.message-result {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.message-result.success {
+  color: green;
+}
+
+.message-result.error {
+  color: red;
+}
+
+
+/* === Actividad de Listening === */
+
+/* Links listening */
+#b1-listening {
+  padding: 10px;
+  background: #f5f9ff;
+  border-radius: 8px;
+}
+#b1-grammar {
+  padding: 10px;
+  background: #f5f9ff;
+  border-radius: 8px;
+}
+#b1-speaking {
+  padding: 10px;
+  background: #f5f9ff;
+  border-radius: 8px;
+}
+#b1-reading {
+  padding: 10px;
+  background: #f5f9ff;
+  border-radius: 8px;
+}
+
+.topic-link {
+  display: inline-block; 
+  background-color: #dbeafe; 
+  color: #1e3a8a; 
+  font-weight: 600; 
+  padding: 12px 24px; 
+  border-radius: 30px; 
+  text-decoration: none; 
+  font-size: 1.1rem; 
+  box-shadow: 2px 2px 6px rgba(30, 58, 138, 0.15); 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+/* === Estilos al pasar el mouse o enfocar con teclado === */
+.topic-link:hover,
+.topic-link:focus {
+  background-color: #bfdbfe; 
+  transform: scale(1.05); 
+  outline: 2px solid #1e40af; 
+  outline-offset: 3px; 
+}
+
+/* === Estilos responsivos para pantallas pequeñas (máx. 600px) === */
+@media (max-width: 600px) {
+  .subtab-content {
+    padding: 1.5rem; 
+  }
+
+  .topic-link {
+    width: 90%; 
+    text-align: center; 
+    font-size: 1rem; 
+  }
+  .topic-section ul {
+    justify-content: center; 
+  }
+
+  .topic-section ul li {
+    flex: 1 1 100%; 
+    text-align: center;
+  }
+}
+
+.topic-section {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgb(100 116 139 / 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.topic-section:hover,
+.topic-section:focus-within {
+  box-shadow: 0 4px 12px rgb(100 116 139 / 0.25);
+}
+
+.topic-section h4 {
+  margin-top: 0;
+  color: #1e40af;
+  font-weight: 700;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.topic-section button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  transition: background-color 0.25s ease, transform 0.3s ease;
+}
+
+.topic-section button:hover,
+.topic-section button:focus {
+  background-color: #2563eb;
+  outline: 3px solid #1e40af;
+  outline-offset: 2px;
+  transform: scale(1.05);
+}
+
+.topic-section button::before {
+  content: "🔊";
+  font-size: 1.2em;
+}
+
+.topic-section ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.topic-section ul li {
+  background-color: #e0e7ff;
+  padding: 7px 14px;
+  border-radius: 25px;
+  font-weight: 600;
+  color: #4260b0;
+  box-shadow: 1px 1px 3px rgb(30 58 138 / 0.15);
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+.topic-section ul li:hover {
+  background-color: #c7d2fe;
+}
+
+/*--------------SPEAKING-------------------*/
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.correct-message {
+  color: green;
+  font-weight: bold;
+}
+
+button {
+  margin: 5px 0;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* === Contenedor general de actividades === */
+.activities {
+  width: 90%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  background-color: #e0f7fa;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activities h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.activity-card {
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  border: 2px solid #b2ebf2; /* Borde azul para las tarjetas de actividad */
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.activity-card input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+ 
+footer {
+  background-color: #a2d2ff; /* Color del footer */
+  text-align: center;
+  padding: 1rem;
+  border-radius: 15px 15px 0 0; /* Bordes redondeados */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/*-----MULTIPLE OPTIONS ----*/
+button.selected {
+  background-color: #ffd54f;
+  color: #000;
+  border: 2px solid #ffa000;
+}
+
+/*--------Button results-----------*/
+.btn-resultados {
+  margin-top: 2rem;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-resultados:hover {
+  background-color: #1976d2;
+}
+
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .container {
+  flex-direction: row;
+  flex-wrap: wrap; /* ← Permite que el contenido se acomode si no cabe */
+}
+
+
+  .sidebar {
+    width: 60px; /* Sidebar colapsada en móvil */
+    flex-shrink: 0;
+  }
+
+ 
+
+  .subtab-label {
+    display: none; /* Oculta etiquetas para ahorrar espacio */
+  }
+
+  .subtab-button {
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .subtab-label {
+    display: inline-block; /* Mostrar etiquetas en móvil */
+  }
+
+  .sidebar.collapsed .subtab-label {
+    display: none; /* Solo ocultar si está colapsado */
+  }
+}
+
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  color: #6c757d;
+}

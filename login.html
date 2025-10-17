@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Log in</h2>
+    <form id="login-form">
+      <label for="login-role">I am:</label>
+      <select id="login-role" required>
+        <option value="">Choose</option>
+        <option value="estudiante">Student</option>
+        <option value="docente">Teacher</option>
+      </select>
+
+      <label for="login-email">E-mail:</label>
+      <input type="text" id="login-email" required />
+
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" required />
+
+      <button type="submit">Next</button>
+    </form>
+
+    <div id="register-section">
+      <p>¿Aren't you registered? <a href="index.html">Register here</a></p>
+    </div>
+
+<div id="teacher-section" class="hidden">
+  <h2>Students</h2>
+  <div id="student-list"></div>
+  <button id="cerrar-btn" class="cerrar-sesion-btn">🔓 Log out</button>
+</div>
+
+
+
+
+  <script src="login.js"></script>
+</body>
+</html>
