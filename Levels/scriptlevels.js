@@ -287,11 +287,11 @@ function checkClickOrder() {
                     currentWords.every((word, i) => word === correctOrder[i]);
 
   if (isCorrect) {
-    result.textContent = "✅ ¡Correcto! Bien hecho.";
+    result.textContent = "✅ ¡Correct! Well done.";
     result.classList.remove('error');
     result.classList.add('success');
   } else {
-    result.textContent = "❌ No está del todo bien. ¡Intenta otra vez!";
+    result.textContent = "❌ Not quite right. ¡Try again!";
     result.classList.remove('success');
     result.classList.add('error');
     retryBtn.style.display = 'inline-block';
@@ -685,4 +685,5 @@ window.addEventListener("DOMContentLoaded", () => {
       btn.style.display = "none";
     });
   });
+
 });
