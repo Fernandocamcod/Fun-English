@@ -27,7 +27,7 @@ document.getElementById("login-form").addEventListener("submit", (e) => {
       document.getElementById("register-section").classList.add("hidden"); // Ocultar sección de registro
       mostrarListaEstudiantes(); // Mostrar la lista de estudiantes
     } else {
-      mostrarAlerta("Usuario o contraseña incorrectos.");
+      mostrarAlerta("Wrong Password or User.");
     }
   }
 });
@@ -39,7 +39,7 @@ function mostrarListaEstudiantes() {
   studentList.innerHTML = "";
 
   if (estudiantes.length === 0) {
-    studentList.innerHTML = "<p>No hay estudiantes registrados.</p>";
+    studentList.innerHTML = "<p>No students registered yet.</p>";
     return;
   }
 
@@ -51,7 +51,6 @@ function mostrarListaEstudiantes() {
       Curso: ${est.curso}<br>
       Nivel: ${est.nivel}<br>
       Correo: ${est.email}<br>
-      <button onclick="verProgreso('${est.email}')">Ver Progreso</button>
       <button onclick="eliminarEstudiante('${est.email}')">Eliminar</button>
     `;
     studentList.appendChild(div);
